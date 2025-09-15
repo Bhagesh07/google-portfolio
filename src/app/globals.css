@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  body {
+    @apply bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300;
+  }
+}
+
+@layer components {
+  .google-search-shadow {
+    box-shadow: 0 2px 5px 1px rgba(64,60,67,.16);
+  }
+  
+  .google-search-shadow:hover {
+    box-shadow: 0 2px 8px 1px rgba(64,60,67,.24);
+  }
+  
+  .search-suggestion {
+    @apply px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer transition-colors duration-150;
+  }
+  
+  .result-card {
+    @apply bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm hover:shadow-md transition-all duration-200 border border-gray-200 dark:border-gray-700;
+  }
+  
+  .skill-tag {
+    @apply inline-block bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full text-sm font-medium mr-2 mb-2;
+  }
+  
+  .project-card {
+    @apply bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600;
+  }
+}
