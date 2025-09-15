@@ -165,7 +165,7 @@ export default function SkillsPage() {
             Ready to collaborate?
           </h3>
           <p className="text-gray-600 dark:text-gray-400 mb-6">
-            Let's build something amazing together using these technologies.
+            Let&apos;s build something amazing together using these technologies.
           </p>
           <div className="space-x-4">
             <Link

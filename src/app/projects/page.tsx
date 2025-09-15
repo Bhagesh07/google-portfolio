@@ -35,7 +35,7 @@ export default function ProjectsPage() {
             Featured Projects
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            A showcase of full-stack web applications and software solutions I've built 
+            A showcase of full-stack web applications and software solutions I&apos;ve built 
             using modern technologies and best practices.
           </p>
         </div>

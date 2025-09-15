@@ -199,10 +199,10 @@ export default function AchievementsPage() {
         {/* Call to Action */}
         <div className="text-center animate-fade-in" style={{ animationDelay: '1s' }}>
           <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-            Let's connect and grow together
+            Let&apos;s connect and grow together
           </h3>
           <p className="text-gray-600 dark:text-gray-400 mb-6">
-            I'm always looking for new challenges and opportunities to learn and contribute.
+            I&apos;m always looking for new challenges and opportunities to learn and contribute.
           </p>
           <div className="space-x-4">
             <a

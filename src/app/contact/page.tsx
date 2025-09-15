@@ -58,10 +58,10 @@ export default function ContactPage() {
         {/* Introduction */}
         <div className="mb-12 text-center animate-fade-in">
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Let's Connect
+            Let&apos;s Connect
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            I'm always open to discussing new opportunities, collaborations, or just having 
+            I&apos;m always open to discussing new opportunities, collaborations, or just having 
             a conversation about technology and software development.
           </p>
         </div>
@@ -177,7 +177,7 @@ export default function ContactPage() {
                   Message Sent!
                 </h4>
                 <p className="text-gray-600 dark:text-gray-400 mb-4">
-                  Thank you for reaching out. I'll get back to you within 24 hours.
+                  Thank you for reaching out. I&apos;ll get back to you within 24 hours.
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}
@@ -233,7 +233,7 @@ export default function ContactPage() {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
-                    placeholder="What's this about?"
+                    placeholder="What&apos;s this about?"
                   />
                 </div>
                 
@@ -282,7 +282,7 @@ export default function ContactPage() {
               Open to Opportunities
             </h3>
             <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-2xl mx-auto">
-              I'm currently seeking internship and full-time opportunities in software development, 
+              I&apos;m currently seeking internship and full-time opportunities in software development, 
               particularly in full-stack web development, backend systems, and AI/ML applications.
             </p>
             <div className="flex flex-wrap justify-center gap-4">

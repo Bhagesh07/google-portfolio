@@ -169,7 +169,7 @@ export default function InternshipPage() {
             Want to know more?
           </h3>
           <p className="text-gray-600 dark:text-gray-400 mb-6">
-            I'd love to discuss my internship experience and how it shaped my approach to software development.
+            I&apos;d love to discuss my internship experience and how it shaped my approach to software development.
           </p>
           <div className="space-x-4">
             <Link

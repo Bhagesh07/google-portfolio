@@ -53,8 +53,10 @@ export default function Home() {
       </div>
 
       {/* Footer */}
-      <footer className="mt-16 text-center text-sm text-gray-500 dark:text-gray-400">
-        <p>Try searching for "skills", "projects", "internship", or "contact"</p>
+      <footer className="mt-16">
+        <p className="text-center text-sm text-gray-500 dark:text-gray-400">
+          Try searching for &quot;skills&quot;, &quot;projects&quot;, &quot;internship&quot;, or &quot;contact&quot;
+        </p>
       </footer>
     </main>
   )
