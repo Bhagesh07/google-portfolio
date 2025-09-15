@@ -1,4 +1,8 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  experimental: {
+    appDir: true, // Tell Next.js to use the App Router in src/app
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
