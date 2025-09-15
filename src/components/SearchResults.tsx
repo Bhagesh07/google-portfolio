@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { Search, ArrowLeft, ExternalLink } from 'lucide-react'
@@ -24,9 +24,39 @@ export default function SearchResults() {
   const [results, setResults] = useState<SearchResult[]>([])
   const [searchQuery, setSearchQuery] = useState(query)
 
-  const performSearch = (searchTerm: string) => {
-    const lowerQuery = searchTerm.toLowerCase()
+  const calculateRelevance = useCallback((item: any, query: string): number => {
+    let score = 0
+    if (item.title.toLowerCase().includes(query)) score += 10
+    const matchingKeywords = item.keywords?.filter((keyword: string) => 
+      keyword.toLowerCase().includes(query) || query.includes(keyword.toLowerCase())
+    ) || []
+    score += matchingKeywords.length * 5
+    if (item.description?.toLowerCase().includes(query)) score += 3
+    return score
+  }, [])
+
+  const generateSnippet = useCallback((item: any, query: string): string => {
+    const description = item.description || ''
+    const queryIndex = description.toLowerCase().indexOf(query)
     
+    if (queryIndex !== -1) {
+      const start = Math.max(0, queryIndex - 50)
+      const end = Math.min(description.length, queryIndex + query.length + 50)
+      let snippet = description.substring(start, end)
+      
+      if (start > 0) snippet = '...' + snippet
+      if (end < description.length) snippet = snippet + '...'
+      
+      return snippet
+    }
+    
+    return description.substring(0, 150) + (description.length > 150 ? '...' : '')
+  }, [])
+
+  useEffect(() => {
+    if (!query) return
+
+    const lowerQuery = query.toLowerCase()
     const searchResults: SearchResult[] = []
 
     searchData.forEach(item => {
@@ -83,42 +113,7 @@ export default function SearchResults() {
     })
 
     setResults(searchResults.slice(0, 10))
-  }
-
-  useEffect(() => {
-    if (query) {
-      performSearch(query)
-    }
-  }, [query, performSearch])   // ✅ Added performSearch to dependency array
-
-  const calculateRelevance = (item: any, query: string): number => {
-    let score = 0
-    if (item.title.toLowerCase().includes(query)) score += 10
-    const matchingKeywords = item.keywords?.filter((keyword: string) => 
-      keyword.toLowerCase().includes(query) || query.includes(keyword.toLowerCase())
-    ) || []
-    score += matchingKeywords.length * 5
-    if (item.description?.toLowerCase().includes(query)) score += 3
-    return score
-  }
-
-  const generateSnippet = (item: any, query: string): string => {
-    const description = item.description || ''
-    const queryIndex = description.toLowerCase().indexOf(query)
-    
-    if (queryIndex !== -1) {
-      const start = Math.max(0, queryIndex - 50)
-      const end = Math.min(description.length, queryIndex + query.length + 50)
-      let snippet = description.substring(start, end)
-      
-      if (start > 0) snippet = '...' + snippet
-      if (end < description.length) snippet = snippet + '...'
-      
-      return snippet
-    }
-    
-    return description.substring(0, 150) + (description.length > 150 ? '...' : '')
-  }
+  }, [query, calculateRelevance, generateSnippet])
 
   const handleSearch = () => {
     if (searchQuery.trim()) {
